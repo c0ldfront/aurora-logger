@@ -1,8 +1,8 @@
-import LoggerInterface from "./logger.interface";
+import ILogger from "./logger.interface";
 import LogLevel from "./log-level.enum";
 import {version} from "../package.json";
 
-abstract class LoggerBase<T> implements LoggerInterface {
+abstract class LoggerBase<T> implements ILogger {
     protected _logger!: T;
     protected _logLevel: LogLevel;
 

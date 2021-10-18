@@ -1,4 +1,4 @@
-interface LoggerInterface {
+interface ILogger {
     log(message: string): void;
     trace(tag: string, message: string, ...args: any[]): void
     debug(tag: string, message: string, ...args: any[]): void
@@ -8,4 +8,4 @@ interface LoggerInterface {
     fatal(tag: string, message: string, ...args: any[]): void
 }
 
-export default LoggerInterface;
+export default ILogger;
