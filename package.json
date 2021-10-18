@@ -3,11 +3,29 @@
   "version": "0.0.2",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [],
   "author": "David Charles Mydlarz <coldfront@gmail.com>",
   "license": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:c0ldfront/aurora-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/c0ldfront/aurora-logger/issues"
+  },
+  "files": [
+    "lib/**/*"
+  ],
   "dependencies": {
     "dayjs": "^1.10.7",
     "log4js": "^6.3.0",
@@ -15,6 +33,9 @@
   },
   "devDependencies": {
     "@types/pino": "^6.3.11",
+    "prettier": "^2.4.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.4.3"
   }
 }
